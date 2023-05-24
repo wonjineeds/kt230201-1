@@ -1,0 +1,55 @@
+#file-module-0  {
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+h1{
+    color: #19BEC9; 
+}
+
+input[type="file"]::file-selector-button {
+    /* 파일 선택 버튼 스타일 */
+    background-color: #19BEC9; /* 원하는 색상으로 변경 */
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+fieldset {
+    margin-bottom: 5px;
+    padding: 2px;   /* contents와 테두리 사이에 간격 */
+    border: 1px solid #ccc;
+    border-width: 1px;
+    border-radius: 10px;
+    width: 1350px;  /* 테두리 크기 */
+    
+    
+  }
+
+button{
+    display: block;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    color: black;
+    cursor: pointer;
+}  
+  
+ 
+input[type="submit"] {
+    display: flex;
+    margin-bottom: 10px;
+    background-color: #19BEC9;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+} 

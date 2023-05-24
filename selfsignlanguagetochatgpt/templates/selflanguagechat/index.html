@@ -1,0 +1,54 @@
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'selflanguagechat/style.css' %}">
+<script>
+    let idNum = 0;
+
+    function addFile(){
+        deepCopy();
+    }
+
+    function deepCopy()  {
+      // 'test' node 선택
+      const fileModule = document.getElementById('file-module-'+idNum);
+
+
+
+      // 노드 복사하기 (deep copy)
+      const newNode = fileModule.cloneNode(true);
+
+      console.log(newNode)
+
+      // 복사된 Node id 변경하기
+      idNum++;
+      newNode.id = 'file-module-' + idNum;
+
+      // 복사한 노드 붙여넣기
+      fileModule.after(newNode);
+      
+    }
+</script>
+{% endblock %}
+<form action="chat" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div id="file-module-0">
+        <fieldset style="width:500;">
+            <legend><h1>파일 업로드</h1></legend>
+            <input name="files" type="file">
+        </fieldset>
+    </div>
+    <button onclick="addFile()" type="button">파일 추가</button>
+    <div><input type="submit" value="ChatGPT에게 수어로 문의하기"></div>
+</form>
+{% if question %}
+<link rel="stylesheet" href="{% static 'selflanguagechat/chat_style.css' %}">
+{% csrf_token %}
+    <div class='mainreq'id="file-module-0">
+        <label class='request'>chatgtp에게 요청하기</label>
+        <textarea class='request' id="question" name="question">{{question}}</textarea>
+    </div>
+    <div class='mainres'>
+      <label class="response">응답</label>
+      <span class="response" id="result">{{result}}</span>
+    </div>
+{% endif %}
